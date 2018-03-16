@@ -4,6 +4,6 @@
 [submodule "Modules/nettle"]
 	path = Modules/nettle
 	url = https://github.com/breadwallet/nettle.git
-[submodule "Modules/vertwallet-core"]
-	path = Modules/vertwallet-core
+[submodule "Modules/weywallet-core"]
+	path = Modules/weywallet-core
 	url = https://github.com/WeyCoin/WeyWallet-Core
