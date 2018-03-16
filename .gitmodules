@@ -6,4 +6,4 @@
 	url = https://github.com/breadwallet/nettle.git
 [submodule "Modules/vertwallet-core"]
 	path = Modules/vertwallet-core
-	url = https://github.com/gertjaap/vertwallet-core
+	url = https://github.com/WeyCoin/WeyWallet-Core
