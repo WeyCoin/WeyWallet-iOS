@@ -6,4 +6,4 @@
 	url = https://github.com/breadwallet/nettle.git
 [submodule "Modules/weywallet-core"]
 	path = Modules/weywallet-core
-	url = https://github.com/WeyCoin/WeyWallet-Core
+	url = http://github.com/WeyCoin/WeyWallet-Core
