@@ -77,8 +77,11 @@ class Transaction {
     func amountDetails(isBtcSwapped: Bool, rate: Rate, rates: [Rate], maxDigits: Int) -> String {
         let feeAmount = Amount(amount: fee, rate: rate, maxDigits: maxDigits)
         let feeString = direction == .sent ? String(format: S.Transaction.fee, "\(feeAmount.string(isBtcSwapped: isBtcSwapped))") : ""
+        
         let amountString = "\(direction.sign)\(Amount(amount: satoshis, rate: rate, maxDigits: maxDigits).string(isBtcSwapped: isBtcSwapped)) \(feeString)"
+        
         var startingString = String(format: S.Transaction.starting, "\(Amount(amount: startingBalance, rate: rate, maxDigits: maxDigits).string(isBtcSwapped: isBtcSwapped))")
+        
         var endingString = String(format: String(format: S.Transaction.ending, "\(Amount(amount: balanceAfter, rate: rate, maxDigits: maxDigits).string(isBtcSwapped: isBtcSwapped))"))
 
         if startingBalance > C.maxMoney {
@@ -86,7 +89,7 @@ class Transaction {
             endingString = ""
         }
 
-        var exchangeRateInfo = ""
+        /*var exchangeRateInfo = ""
         if let metaData = metaData, let currentRate = rates.filter({ $0.code.lowercased() == metaData.exchangeRateCurrency.lowercased() }).first {
             let difference = (currentRate.rate - metaData.exchangeRate)/metaData.exchangeRate*100.0
             let prefix = difference > 0.0 ? "+" : "-"
@@ -94,13 +97,13 @@ class Transaction {
             let nf = NumberFormatter()
             nf.currencySymbol = currentRate.currencySymbol
             nf.numberStyle = .currency
-            if let rateString = nf.string(from: metaData.exchangeRate as NSNumber) {
-                let secondLine = "\(rateString)/btc \(prefix)\(String(format: "%.2f", difference))%"
-                exchangeRateInfo = "\(firstLine)\n\(secondLine)"
-            }
-        }
+            //if let rateString = nf.string(from: metaData.exchangeRate as NSNumber) {
+                //let secondLine = "\(rateString)/btc \(prefix)\(String(format: "%.2f", difference))%"
+               // exchangeRateInfo = "\(firstLine)\n\(secondLine)"
+            //}
+        }*/
 
-        return "\(amountString)\n\n\(startingString)\n\(endingString)\n\n\(exchangeRateInfo)"
+        return "\(amountString)\n\n\(startingString)\n\(endingString)"
     }
 
     let direction: TransactionDirection
@@ -275,7 +278,7 @@ class Transaction {
     }
 
     var shouldDisplayAvailableToSpend: Bool {
-        return confirms > 1 && confirms < 6 && direction == .received
+        return confirms > 3 && confirms < 6 && direction == .received
     }
 }
 
@@ -302,16 +305,32 @@ private func makeStatus(_ txRef: BRTxRef, wallet: BRWallet, peerManager: BRPeerM
     print("Last Block Height: %i", peerManager.lastBlockHeight)
     print("Transaction Block Height: %i", tx.blockHeight)
     
-    if tx.blockHeight == INT32_MAX {
-        return S.Transaction.complete
+    let format = direction == .sent ? S.Transaction.sendingStatus : S.Transaction.receivedStatus
+    
+    if tx.blockHeight == INT32_MAX || peerManager.lastBlockHeight < tx.blockHeight {
+        return String(format: "", "Processing Transaction...")
     }
     
-    var calculatedConfirmations = peerManager.lastBlockHeight - tx.blockHeight
+    let calculatedConfirmations = peerManager.lastBlockHeight - tx.blockHeight
 
-    if calculatedConfirmations < 11 {
+    if calculatedConfirmations < 6 {
         var percentageString = ""
         
         if calculatedConfirmations == 0 {
+            percentageString = "0%"
+        } else if calculatedConfirmations == 1 {
+            percentageString = "20%"
+        } else if calculatedConfirmations == 2 {
+            percentageString = "40%"
+        } else if calculatedConfirmations == 3 {
+            percentageString = "60%"
+        } else if calculatedConfirmations == 4 {
+            percentageString = "80%"
+        } else if calculatedConfirmations == 5 {
+            return S.Transaction.complete
+        }
+        
+        /*if calculatedConfirmations == 0 {
             percentageString = "0%"
         } else if calculatedConfirmations == 1 {
             percentageString = "10%"
@@ -333,8 +352,7 @@ private func makeStatus(_ txRef: BRTxRef, wallet: BRWallet, peerManager: BRPeerM
             percentageString = "90%"
         } else if calculatedConfirmations == 10 {
             percentageString = "100%"
-        }
-        let format = direction == .sent ? S.Transaction.sendingStatus : S.Transaction.receivedStatus
+        }*/
         return String(format: format, percentageString)
     } else {
         return S.Transaction.complete

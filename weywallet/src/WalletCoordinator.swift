@@ -40,6 +40,14 @@ class WalletCoordinator : Subscriber, Trackable {
         reachability.didChange = { [weak self] isReachable in
             self?.reachabilityDidChange(isReachable: isReachable)
         }
+        
+        
+        _ = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(WalletCoordinator.updateBalanceTimer), userInfo: nil, repeats: true)
+
+    }
+    
+    @objc func updateBalanceTimer() {
+        updateBalance()
     }
 
     private var lastBlockHeight: UInt32 {
@@ -204,8 +212,7 @@ class WalletCoordinator : Subscriber, Trackable {
         if let rate = store.state.currentRate {
             let amount = Amount(amount: amount, rate: rate, maxDigits: store.state.maxDigits)
             let primary = store.state.isBtcSwapped ? amount.localCurrency : amount.bits
-            let secondary = store.state.isBtcSwapped ? amount.bits : amount.localCurrency
-            let message = String(format: S.TransactionDetails.received, "\(primary) (\(secondary))")
+            let message = String(format: S.TransactionDetails.received, "\(primary)")
             store.trigger(name: .lightWeightAlert(message))
             showLocalNotification(message: message)
             ping()

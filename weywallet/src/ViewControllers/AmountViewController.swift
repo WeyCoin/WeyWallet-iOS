@@ -18,7 +18,6 @@ class AmountViewController : UIViewController, Trackable {
         self.isPinPadExpandedAtLaunch = isPinPadExpandedAtLaunch
         self.isRequesting = isRequesting
         
-        
         self.currencyToggle = ShadowButton(title: "WAE", type: .tertiary);
         
         /*if let rate = store.state.currentRate, store.state.isBtcSwapped {
