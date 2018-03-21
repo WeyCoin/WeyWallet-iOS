@@ -1,4 +1,4 @@
-[![Bread](/images/top-logo.jpg)](https://itunes.apple.com/app/breadwallet/id885251393)
+[![Bread](/images/top-logo.jpg)](https://itunes.apple.com/app/weywallet/id885251393)
 
 ## The easy and secure bitcoin wallet
 
@@ -60,4 +60,4 @@ Any jailbreak app can grant itself access to every other app's keychain data. Th
 
 **Bread** is open source and available under the terms of the MIT license.
 
-Source code is available at https://github.com/breadwallet
+Source code is available at https://github.com/weywallet
