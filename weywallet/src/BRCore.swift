@@ -536,8 +536,7 @@ class BRPeerManager {
     init?(wallet: BRWallet, earliestKeyTime: TimeInterval, blocks: [BRBlockRef?], peers: [BRPeer],
           listener: BRPeerManagerListener) {
         var blockRefs = blocks
-        guard let cPtr = BRPeerManagerNew(wallet.cPtr, UInt32(earliestKeyTime + NSTimeIntervalSince1970),
-                                          &blockRefs, blockRefs.count, peers, peers.count) else { return nil }
+        guard let cPtr = BRPeerManagerNew(wallet.cPtr, UInt32(earliestKeyTime + NSTimeIntervalSince1970), &blockRefs, blockRefs.count, peers, peers.count) else { return nil }
         self.listener = listener
         self.cPtr = cPtr
         
@@ -558,7 +557,11 @@ class BRPeerManager {
         { (info, replace, blocks, blocksCount) in // saveBlocks
             guard let info = info else { return }
             let blockRefs = [BRBlockRef?](UnsafeBufferPointer(start: blocks, count: blocksCount))
-            Unmanaged<BRPeerManager>.fromOpaque(info).takeUnretainedValue().listener.saveBlocks(replace != 0, blockRefs)
+            
+            let lockQueue = DispatchQueue(label: "com.digibyte.persistblocks")
+            lockQueue.sync() {
+                Unmanaged<BRPeerManager>.fromOpaque(info).takeUnretainedValue().listener.saveBlocks(replace != 0, blockRefs)
+            }
         },
         { (info, replace, peers, peersCount) in // savePeers
             guard let info = info else { return }

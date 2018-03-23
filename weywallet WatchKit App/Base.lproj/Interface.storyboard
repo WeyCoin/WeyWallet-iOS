@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13771" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <device id="watch38" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="12029"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13756"/>
     </dependencies>
     <scenes>
         <!--Balance-->
@@ -17,16 +17,11 @@
                         <label alignment="center" verticalAlignment="center" text="1,000" textAlignment="center" minimumScaleFactor="0.5" id="A9h-CR-kAQ" userLabel="BitsBalance">
                             <fontDescription key="font" type="system" pointSize="30"/>
                         </label>
-                        <label alignment="center" verticalAlignment="center" text="$500" textAlignment="center" minimumScaleFactor="0.5" id="mB1-E9-tTW" userLabel="LocalBalance">
-                            <color key="textColor" red="0.86591726540000002" green="0.88387340309999995" blue="0.90069425110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="font" type="system" pointSize="20"/>
-                        </label>
                         <label alignment="center" text="NoWallet Label" numberOfLines="0" id="SUN-9p-WiB"/>
                     </items>
                     <connections>
                         <outlet property="bitsBalance" destination="A9h-CR-kAQ" id="t1O-Ne-1y5"/>
                         <outlet property="loadingIndicator" destination="q0L-Rc-67d" id="xzD-r0-JI9"/>
-                        <outlet property="localBalance" destination="mB1-E9-tTW" id="RVn-jt-MH9"/>
                         <outlet property="noWallet" destination="SUN-9p-WiB" id="gCl-Ej-t0x"/>
                         <segue destination="9Xz-xI-XUr" kind="relationship" relationship="nextPage" id="qpD-Hu-ebe"/>
                     </connections>

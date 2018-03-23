@@ -218,6 +218,7 @@
 		75A2A81F1DA5938500A983D8 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A2A81E1DA5938500A983D8 /* NotificationService.swift */; };
 		75A2A8231DA5938500A983D8 /* NotificationServiceExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 75A2A81C1DA5938500A983D8 /* NotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		75C735AA1DAA1B9C00251ECF /* libunbound.c in Sources */ = {isa = PBXBuildFile; fileRef = 755CD4121DAA0E3E0075898E /* libunbound.c */; };
+		C278678F2064982200CF606E /* BoringGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278678E2064982200CF606E /* BoringGradientView.swift */; };
 		C29BD3292061AFE0007534AB /* Lyra2RE.c in Sources */ = {isa = PBXBuildFile; fileRef = C29BD3112061AFE0007534AB /* Lyra2RE.c */; };
 		C29BD32A2061AFE0007534AB /* keccak.c in Sources */ = {isa = PBXBuildFile; fileRef = C29BD3142061AFE0007534AB /* keccak.c */; };
 		C29BD32B2061AFE0007534AB /* blake.c in Sources */ = {isa = PBXBuildFile; fileRef = C29BD3192061AFE0007534AB /* blake.c */; };
@@ -229,6 +230,7 @@
 		C29BD3312061AFE0007534AB /* Lyra2.c in Sources */ = {isa = PBXBuildFile; fileRef = C29BD3262061AFE0007534AB /* Lyra2.c */; };
 		C29BD3322061AFE0007534AB /* Sponge.c in Sources */ = {isa = PBXBuildFile; fileRef = C29BD3282061AFE0007534AB /* Sponge.c */; };
 		C29BD3372061AFF0007534AB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C29BD3362061AFF0007534AB /* Info.plist */; };
+		C2CB1144206479CD00405E01 /* header.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C2CB1143206479CC00405E01 /* header.jpeg */; };
 		CE03EC721EF193810038E3A8 /* String+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03EC711EF193800038E3A8 /* String+Keys.swift */; };
 		CE03EC741EF256AC0038E3A8 /* SimpleUTXO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE03EC731EF256AC0038E3A8 /* SimpleUTXO.swift */; };
 		CE0CD1591DBFBCF5004023DA /* ModalPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0CD1581DBFBCF5004023DA /* ModalPresenter.swift */; };
@@ -1389,6 +1391,7 @@
 		75DC77CE1DAA05B500932D9A /* BRWallet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRWallet.h; sourceTree = "<group>"; };
 		75DC783C1DAA05B500932D9A /* test.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = test.c; sourceTree = "<group>"; };
 		75FEFD1B1DAED56E00203D3A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		C278678E2064982200CF606E /* BoringGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoringGradientView.swift; sourceTree = "<group>"; };
 		C29BD3112061AFE0007534AB /* Lyra2RE.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Lyra2RE.c; sourceTree = "<group>"; };
 		C29BD3122061AFE0007534AB /* Lyra2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lyra2.h; sourceTree = "<group>"; };
 		C29BD3142061AFE0007534AB /* keccak.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = keccak.c; sourceTree = "<group>"; };
@@ -1415,6 +1418,7 @@
 		C29BD3342061AFF0007534AB /* iphonesim.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = iphonesim.modulemap; sourceTree = "<group>"; };
 		C29BD3352061AFF0007534AB /* iphone.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = iphone.modulemap; sourceTree = "<group>"; };
 		C29BD3362061AFF0007534AB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2CB1143206479CC00405E01 /* header.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = header.jpeg; sourceTree = "<group>"; };
 		CE03EC711EF193800038E3A8 /* String+Keys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Keys.swift"; path = "src/Extensions/String+Keys.swift"; sourceTree = "<group>"; };
 		CE03EC731EF256AC0038E3A8 /* SimpleUTXO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleUTXO.swift; path = src/Models/SimpleUTXO.swift; sourceTree = "<group>"; };
 		CE0CD1581DBFBCF5004023DA /* ModalPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ModalPresenter.swift; path = src/ModalPresenter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -2652,6 +2656,7 @@
 				CEAA9E9C1DC2F8270066731D /* Fonts */,
 				CE4C1CD21ED8BCC70063E184 /* BIP39Words.plist */,
 				2218BD781E8F6CBA0091D5E8 /* AssetBundles.plist */,
+				C2CB1143206479CC00405E01 /* header.jpeg */,
 				CED486DD1F70A179007406D3 /* bread-frontend.tar */,
 				75A2A79A1DA5934300A983D8 /* Assets.xcassets */,
 				CE5E6C991EB9135000A476DB /* Icon.xcassets */,
@@ -3049,6 +3054,7 @@
 				CE2DC1381EBC36EE000FE727 /* Prompt.swift */,
 				CE4C1CC51ED65D830063E184 /* DrawableCircle.swift */,
 				CEBF292D1EF99E55005C330A /* LightWeightAlert.swift */,
+				C278678E2064982200CF606E /* BoringGradientView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -3703,6 +3709,7 @@
 				75A2A79E1DA5934300A983D8 /* LaunchScreen.storyboard in Resources */,
 				CEAA9EA31DC2FC700066731D /* CircularPro-Book.otf in Resources */,
 				222319B21F279B3C00008F20 /* POSTBouncer.html in Resources */,
+				C2CB1144206479CD00405E01 /* header.jpeg in Resources */,
 				CE473D7C1F042F1E00C0ACFD /* coinflip.aiff in Resources */,
 				CE5E6C9A1EB9135000A476DB /* Icon.xcassets in Resources */,
 				CE29901A1EFD6DE50093A0F2 /* Localizable.strings in Resources */,
@@ -4115,6 +4122,7 @@
 				CE36454C1E7B42850079D0CF /* WhiteDecimalPad.swift in Sources */,
 				CE5F21D91E4A922700C47B8E /* DismissLoginAnimator.swift in Sources */,
 				CECCE5A51E02408300D99448 /* UIView+FrameChangeBlocking.swift in Sources */,
+				C278678F2064982200CF606E /* BoringGradientView.swift in Sources */,
 				C29BD3322061AFE0007534AB /* Sponge.c in Sources */,
 				22A9A94F1DF61945000F0016 /* BRHTTPRouter.swift in Sources */,
 				CE6DCC271E6108D50044257B /* EnterPhraseCell.swift in Sources */,

@@ -53,9 +53,10 @@ class SyncingView : UIView {
     }()
 
     private let progressForeground: UIView = {
-        let view = GradientView()
+        let view = BoringGradientView()
         view.layer.cornerRadius = progressHeight/2.0
         view.layer.masksToBounds = true
+
         return view
     }()
 

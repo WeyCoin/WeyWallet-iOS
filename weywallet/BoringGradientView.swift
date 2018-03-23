@@ -8,16 +8,12 @@
 
 import UIKit
 
-protocol GradientDrawable {
-    func drawGradient(_ rect: CGRect)
+protocol BoringGradientDrawable {
+    func drawReallyBoringGradient(_ rect: CGRect)
 }
 
 extension UIView {
-    func drawGradient(_ rect: CGRect) {
-        addFallbackImageBackground()
-    }
-    
-    func drawBoringGradient(_ rect: CGRect) {
+    func drawReallyBoringGradient(_ rect: CGRect) {
         guard !E.isIPhone4 && !E.isIPhone5 else {
             addFallbackImageBackground()
             return
@@ -30,7 +26,7 @@ extension UIView {
         context.drawLinearGradient(gradient, start: .zero, end: CGPoint(x: rect.width, y: 0.0), options: [])
     }
     
-
+    
     private func addFallbackImageBackground() {
         let image = UIImageView(image: #imageLiteral(resourceName: "HeaderGradient"))
         image.contentMode = .scaleToFill
@@ -40,8 +36,9 @@ extension UIView {
     }
 }
 
-class GradientView : UIView {
+class BoringGradientView : UIView {
     override func draw(_ rect: CGRect) {
-        drawGradient(rect)
+        drawReallyBoringGradient(rect)
     }
 }
+

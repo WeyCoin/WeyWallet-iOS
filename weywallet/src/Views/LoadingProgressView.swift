@@ -84,7 +84,7 @@ class LoadingProgressView : UIView, GradientDrawable {
     }
 
     override func draw(_ rect: CGRect) {
-        drawGradient(rect)
+        drawBoringGradient(rect)
     }
 
     required init?(coder aDecoder: NSCoder) {

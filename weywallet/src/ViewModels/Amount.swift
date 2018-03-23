@@ -36,7 +36,8 @@ struct Amount {
     }
 
     var localCurrency: String {
-        guard let string = localFormat.string(for: Double(amount)/10.0*rate.rate as NSNumber) else { return "" }
+        //1000000000.0
+        guard let string = localFormat.string(for: Double(amount)/1000000000.0 as NSNumber) else { return "" }
         return string
     }
 
@@ -66,7 +67,7 @@ struct Amount {
         format.currencySymbol = "\(S.Symbols.btc)\(S.Symbols.narrowSpace)"
         format.maximum = C.maxMoney/C.satoshis as NSNumber
         
-        format.locale = Locale(identifier: "es_ES")
+        format.locale = Locale(identifier: "en_EN")
 
         format.maximumFractionDigits = 4
         format.minimumFractionDigits = 0 // iOS 8 bug, minimumFractionDigits now has to be set after currencySymbol
@@ -142,7 +143,7 @@ struct DisplayAmount {
         format.generatesDecimalNumbers = true
         format.negativeFormat = format.positiveFormat.replacingCharacters(in: format.positiveFormat.range(of: "#")!, with: "-#")
         format.currencyCode = "WAE"
-        format.locale = Locale(identifier: "es_ES")
+        format.locale = Locale(identifier: "en_EN")
         
         
 

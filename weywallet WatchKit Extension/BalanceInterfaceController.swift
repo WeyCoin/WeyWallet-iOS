@@ -35,8 +35,8 @@ class BalanceInterfaceController: WKInterfaceController {
             loadingIndicator.setHidden(true)
 
             if data.hasWallet {
-                bitsBalance.setText(data.balance)
-                localBalance.setText(data.localBalance)
+                bitsBalance.setText(data.localBalance)
+                //localBalance.setText(data.localBalance)
                 noWallet.setText("")
             } else {
                 noWallet.setText(S.Watch.noWalletWarning)
